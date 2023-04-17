@@ -1,0 +1,13 @@
+---
+- name: Regen VPP startup-config
+  ansible.builtin.command: # noqa no-changed-when
+    # Taken from https://github.com/pimvanpelt/vppcfg/blob/main/docs/user-guide.md
+    cmd: "vppcfg plan --novpp -c {{ vpp_config_file }} -o {{ vpp_boot_file }}"
+
+- name: Update VPP running-config
+  ansible.builtin.fail:
+    msg: |
+      The vppcfg backend does not yet implement the 'apply' feature.
+      See https://github.com/pimvanpelt/vppcfg/blob/main/docs/user-guide.md
+  #ansible.builtin.command: # noqa no-changed-when
+  #  cmd: "vppcfg apply -c {{ vpp_config_file }}"

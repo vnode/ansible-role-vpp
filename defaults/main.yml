@@ -1,0 +1,37 @@
+---
+vpp_enabled: True
+
+vpp_config: ''
+vpp_config_pre: ''
+vpp_config_post: ''
+
+vpp_isolcpu: 'isolcpus=2-5,8-11'
+
+vpp_netns: 'dataplane'
+
+vpp_packages: []
+
+vpp_plugins: ''
+
+vpp_sysctl:
+  - name: '80-vpp.conf'
+    settings:
+      - name: 'vm.nr_hugepages'
+        value: 3072
+      - name: 'vm.max_map_count'
+        value: 7168
+      - name: 'vm.hugetlb_shm_group'
+        value: 0
+      - name: 'kernel.shmmax'
+        value: 6442450944
+  - name: '81-vpp-netlink.conf'
+    comment: 'Allow VPP to create netlink sockets of 64MB each'
+    settings:
+      - name: 'net.core.rmem_default'
+        value: 67108864
+      - name: 'net.core.wmem_default'
+        value: 67108864
+      - name: 'net.core.rmem_max'
+        value: 67108864
+      - name: 'net.core.wmem_max'
+        value: 67108864

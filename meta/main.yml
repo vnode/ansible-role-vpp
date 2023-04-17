@@ -1,0 +1,24 @@
+---
+galaxy_info:
+  namespace: vnode
+  role_name: vpp
+  author: Rogier Krieger
+  description: Install and configure Vector Packet Processing (VPP)
+  #issue_tracker_url: https://github.com/vnode/ansible-role-vpp/issues/
+  company: vNode.net
+  license: MIT
+  min_ansible_version: '2.10'
+  # min_ansible_container_version:
+
+  platforms:
+    - name: Debian
+      versions:
+        - 'bullseye'
+
+  galaxy_tags:
+    - "vpp"
+    - "vppcfg"
+    - "routing"
+    - "dpdk"
+
+dependencies: []

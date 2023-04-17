@@ -1,0 +1,3 @@
+exec /etc/vpp/config/pre.vpp
+exec /etc/vpp/config/vppcfg.vpp
+exec /etc/vpp/config/post.vpp
